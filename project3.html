@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Riley Berycz</title>
+    <style>
+        /* CSS for project landing page */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+        .project-header {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .project-title {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+        .project-subtitle {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+        main {
+            padding: 3rem 0;
+        }
+        .section {
+            margin-bottom: 3rem;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .code-snippet {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        .tech-tag {
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #c0392b;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Riley Berycz</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="project-header">
+        <div class="container">
+            <h1 class="project-title">Project Name</h1>
+            <p class="project-subtitle">A brief one-line description of the project</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="section">
+            <h2>Project Overview</h2>
+            <p>Provide a detailed description of your project here. Explain its purpose, the problem it solves, and why it's innovative or interesting. This is your chance to capture the reader's attention and give them a comprehensive understanding of your work.</p>
+            <div class="technologies">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Express</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Demo Video</h2>
+            <div class="video-container">
+                <iframe src="/api/placeholder/560/315" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p>A brief explanation of what the demo video showcases and any key features to look out for.</p>
+        </section>
+
+        <section class="section">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Feature 1: Description of the first key feature</li>
+                <li>Feature 2: Description of the second key feature</li>
+                <li>Feature 3: Description of the third key feature</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Code Snippet</h2>
+            <p>Here's a key part of the project that showcases an interesting algorithm or feature:</p>
+            <pre class="code-snippet">
+function exampleFunction() {
+    const data = fetchData();
+    const processedData = data.map(item => {
+        return {
+            id: item.id,
+            value: item.value * 2,
+            category: item.value > 50 ? 'High' : 'Low'
+        };
+    });
+    return processedData.filter(item => item.category === 'High');
+}
+            </pre>
+            <p>This code demonstrates how we process and filter data in the application, showcasing our use of modern JavaScript features.</p>
+        </section>
+
+        <section class="section">
+            <h2>Challenges and Solutions</h2>
+            <p>Discuss any significant challenges you faced during the development of this project and how you overcame them. This demonstrates your problem-solving skills and adds depth to your project presentation.</p>
+        </section>
+
+        <section class="section">
+            <h2>Future Enhancements</h2>
+            <p>Outline any plans for future development or features you'd like to add to the project. This shows that you're forward-thinking and have a vision for the project's evolution.</p>
+        </section>
+
+        <section class="section">
+            <h2>Get Involved</h2>
+            <p>Interested in this project? Check out the repository or try the live demo:</p>
+            <a href="#" class="cta-button">View on GitHub</a>
+            <a href="#" class="cta-button">Live Demo</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Riley Berycz. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
