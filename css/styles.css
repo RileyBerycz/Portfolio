@@ -72,6 +72,43 @@ nav a:hover {
     height: 100%;
 }
 
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-item {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+}
+
+.project-item h3 {
+    margin: 15px 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.project-item p {
+    padding: 0 15px 15px;
+    color: #34495e;
+}
+
 footer {
     text-align: center;
     margin-top: 20px;
