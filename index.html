@@ -3,130 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome GitHub Pages Site</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            text-align: center;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-        h1 {
-            margin-bottom: 0;
-        }
-        nav {
-            background-color: #34495e;
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        nav a {
-            color: #ecf0f1;
-            text-decoration: none;
-            padding: 0.5rem;
-        }
-        nav a:hover {
-            background-color: #2c3e50;
-            border-radius: 3px;
-        }
-        .content {
-            background-color: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .code-block {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            padding: 15px;
-            margin: 15px 0;
-            overflow-x: auto;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            padding-top: 30px;
-            height: 0;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <title>My Awesome GitHub Pages Site - Home</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>My Awesome GitHub Pages Site</h1>
-    </header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-    </nav>
+    <header id="header"></header>
+    <nav id="nav"></nav>
+    
     <div class="content">
         <section id="home">
             <h2>Welcome to My Site</h2>
             <p>Here you'll find information about my projects and code samples.</p>
         </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="code-block">
-                <pre><code>
-// Example JavaScript code
-function coolFunction() {
-    console.log("This is a cool function!");
-    return "Awesome!";
-}
-                </code></pre>
-            </div>
-            <p>Check out this cool project demo:</p>
-            <div class="video-container">
-                <iframe src="/api/placeholder/560/315" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </section>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm a passionate developer who loves creating awesome things with code!</p>
-        </section>
     </div>
-    <script>
-        // Add some interactivity
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('nav a');
-            const sections = document.querySelectorAll('section');
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href').slice(1);
-                    sections.forEach(section => {
-                        section.style.display = section.id === targetId ? 'block' : 'none';
-                    });
-                });
-            });
+    <footer id="footer"></footer>
 
-            // Show home section by default
-            sections.forEach(section => {
-                section.style.display = section.id === 'home' ? 'block' : 'none';
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
