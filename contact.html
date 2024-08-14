@@ -61,13 +61,13 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js" type="text/javascript"></script>
     <script>
         (function() {
-            emailjs.init("amF2kZCy60xSltWvLOv_b"); 
+            emailjs.init("YOUR_API_KEY"); // Replace with your EmailJS API key
         })();
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            emailjs.sendForm('service_ijuppgl', 'template_m68e6cn', this)
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
                 .then(function() {
                     document.getElementById('response').innerHTML = "Message sent successfully!";
                     document.getElementById('response').style.display = "block";
