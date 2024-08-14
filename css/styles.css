@@ -1,3 +1,4 @@
+/* Base Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -8,19 +9,20 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
 h1 {
     margin-bottom: 0;
     font-size: 2rem;
 }
 
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Navigation */
 nav {
     background-color: #34495e;
     padding: 0.5rem;
@@ -44,6 +46,7 @@ nav a:hover {
     color: #fff;
 }
 
+/* Content Area */
 .content {
     background-color: #fff;
     padding: 30px;
@@ -52,6 +55,33 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Project Styles */
+.project {
+    margin-bottom: 20px;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+}
+
+/* Footer */
 footer {
     text-align: center;
     margin-top: 20px;
@@ -144,65 +174,13 @@ form {
     }
 }
 
+/* Additional Styles */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-header {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    padding: 1rem 0;
-}
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ecf0f1;
-    text-decoration: none;
-}
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-}
-nav ul li {
-    margin-left: 20px;
-}
-nav ul li a {
-    color: #ecf0f1;
-    text-decoration: none;
-}
-.project-header {
-    background-color: #34495e;
-    color: #ecf0f1;
-    padding: 3rem 0;
-    text-align: center;
-}
-.project-title {
-    font-size: 2.5em;
-    margin-bottom: 0.5rem;
-}
-.project-subtitle {
-    font-size: 1.2em;
-    opacity: 0.8;
-}
-main {
-    padding: 3rem 0;
-}
-.section {
-    margin-bottom: 3rem;
-}
-h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-}
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -210,6 +188,7 @@ h2 {
     overflow: hidden;
     margin-bottom: 1.5rem;
 }
+
 .video-container iframe {
     position: absolute;
     top: 0;
@@ -217,6 +196,7 @@ h2 {
     width: 100%;
     height: 100%;
 }
+
 .code-snippet {
     background-color: #2c3e50;
     color: #ecf0f1;
@@ -225,28 +205,18 @@ h2 {
     overflow-x: auto;
     font-family: 'Courier New', Courier, monospace;
 }
+
 .technologies {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 1rem;
 }
+
 .tech-tag {
     background-color: #3498db;
     color: #fff;
     padding: 0.3rem 0.7rem;
     border-radius: 15px;
     font-size: 0.9em;
-}
-.cta-button {
-    display: inline-block;
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.cta-button:hover {
-    background-color: #c0392b;
 }
