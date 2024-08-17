@@ -3,8 +3,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 100%; /* Removed fixed width for better flexibility */
+    margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
 }
@@ -28,7 +28,9 @@ nav {
     padding: 0.5rem;
     border-radius: 5px;
     margin-top: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav a {
@@ -36,7 +38,6 @@ nav a {
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin: 0 0.5rem;
-    display: inline-block;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -44,6 +45,51 @@ nav a:hover {
     background-color: #2c3e50;
     border-radius: 3px;
     color: #fff;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ecf0f1;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background-color: #34495e;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 15px 20px;
+    }
 }
 
 /* Content Area */
@@ -162,7 +208,7 @@ form {
     display: none;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Media Queries */
 @media (max-width: 600px) {
     .content {
         padding: 20px;
