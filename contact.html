@@ -52,24 +52,39 @@
     </footer>
 
     <!-- Include EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" type="text/javascript"></script>
-    <script>
-        (function() {
-            emailjs.init("HFZDPHvqhlcBVtlBd"); 
-        })();
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" type="text/javascript"></script>
+<script>
+    (function() {
+        emailjs.init("HFZDPHvqhlcBVtlBd"); 
+    })();
 
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            emailjs.sendForm('service_ijuppgl', 'template_m68e6cn', this)
-                .then(function() {
-                    document.getElementById('response').innerHTML = "Message sent successfully!";
-                    document.getElementById('response').style.display = "block";
-                }, function(error) {
-                    document.getElementById('response').innerHTML = "Failed to send message. Please try again later.";
-                    document.getElementById('response').style.display = "block";
-                });
-        });
-    </script>
+        const submitButton = document.querySelector('#contact-form button');
+        submitButton.disabled = true;
+        submitButton.style.backgroundColor = '#3498db'; // Initial color for sending
+
+        emailjs.sendForm('service_ijuppgl', 'template_m68e6cn', this)
+            .then(function() {
+                submitButton.style.backgroundColor = '#27ae60'; // Success color (green)
+                document.getElementById('response').innerHTML = "Message sent successfully!";
+                document.getElementById('response').style.color = '#27ae60';
+                document.getElementById('response').style.display = "block";
+                
+                // Redirect after 3 seconds
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 3000);
+            }, function(error) {
+                submitButton.style.backgroundColor = '#e74c3c'; // Failure color (red)
+                submitButton.disabled = false; // Re-enable button for retry
+                document.getElementById('response').innerHTML = "Failed to send message. Please try again later.";
+                document.getElementById('response').style.color = '#e74c3c';
+                document.getElementById('response').style.display = "block";
+            });
+    });
+</script>
+
 </body>
 </html>
