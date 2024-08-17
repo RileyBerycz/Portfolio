@@ -62,13 +62,18 @@
             event.preventDefault();
 
             const submitButton = document.querySelector('#contact-form button');
+            const responseDiv = document.getElementById('response');
+            
+            // Disable the button and update text and color for sending state
             submitButton.disabled = true;
-            submitButton.style.backgroundColor = '#2980b9'; // Noticeable blue for sending
+            submitButton.classList.add('sending');
             submitButton.textContent = 'Sending...';
 
             emailjs.sendForm('service_ijuppgl', 'template_m68e6cn', this)
                 .then(function() {
-                    submitButton.style.backgroundColor = '#2ecc71'; // Success color (bright green)
+                    // Success state: update button and redirect
+                    submitButton.classList.remove('sending');
+                    submitButton.classList.add('sent');
                     submitButton.textContent = 'Sent!';
                     
                     // Redirect after 2 seconds
@@ -76,13 +81,15 @@
                         window.location.href = 'index.html';
                     }, 2000);
                 }, function(error) {
-                    submitButton.style.backgroundColor = '#e74c3c'; // Failure color (red)
+                    // Failure state: update button and show error message
+                    submitButton.classList.remove('sending');
+                    submitButton.classList.add('failed');
                     submitButton.textContent = 'Failed';
                     submitButton.disabled = false; // Re-enable button for retry
                     
-                    document.getElementById('response').innerHTML = "Failed to send message. Please try again later.";
-                    document.getElementById('response').style.color = '#e74c3c';
-                    document.getElementById('response').style.display = "block";
+                    responseDiv.innerHTML = "Failed to send message. Please try again later.";
+                    responseDiv.style.color = '#e74c3c';
+                    responseDiv.style.display = "block";
                 });
         });
     </script>
