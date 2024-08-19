@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     let currentIndex = 0;
-    const intervalTime = 3000; // Auto-slide interval time
+    const intervalTime = 10000; // Auto-slide interval time
     let autoSlideInterval;
 
     function showSlide(index) {
