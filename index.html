@@ -3,37 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Coding Projects by Riley Berycz</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512x512.png">
+    <title>Riley's Coding Projects</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Coding Projects by Riley</h1>
+        <h1>Riley's Coding Projects</h1>
+        <nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About Me</a>
-        <a href="contact.html">Contact Me</a>
-    </nav>
-
-    <div class="content">
-        <section id="home" class="active">
-            <h2>Welcome to My Site</h2>
-            <p>Here you'll find information about my projects and code samples.</p>
+    <main>
+        <section id="intro">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Explore my journey in coding and software development. Here you'll find a collection of my projects and learn more about my skills and experiences.</p>
         </section>
-    </div>
+
+        <section id="about-preview">
+            <h2>About Me</h2>
+            <p>I'm a passionate developer with a keen interest in [your interests]. My journey in tech began [brief background]...</p>
+            <a href="about.html" class="btn">Learn More About Me</a>
+        </section>
+
+        <section id="featured-projects">
+            <h2>Featured Projects</h2>
+            <div class="project-carousel">
+                <div class="carousel-container">
+                    <!-- Project slides will be dynamically inserted here -->
+                </div>
+                <button class="carousel-arrow prev">&lt;</button>
+                <button class="carousel-arrow next">&gt;</button>
+                <div class="carousel-timer"></div>
+            </div>
+            <a href="projects.html" class="btn btn-large">View All Projects</a>
+        </section>
+
+       
+    </main>
 
     <footer>
-        <p>&copy;  2024 Riley Berycz. All rights reserved.</p>
+        <p>&copy; 2024 Riley Berycz. All rights reserved.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
