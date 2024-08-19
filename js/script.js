@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New mobile menu toggle functionality
+    // Mobile menu
     hamburger.addEventListener('click', () => {
         navUl.classList.toggle('show');
     });
