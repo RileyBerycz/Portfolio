@@ -48,47 +48,49 @@ nav a:hover {
 }
 
 /* Hamburger Menu */
+nav {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
 .hamburger {
-    display: none;
+    display: none; /* Hide the hamburger menu by default */
     flex-direction: column;
     cursor: pointer;
 }
 
-.hamburger span {
+.hamburger div {
     width: 25px;
     height: 3px;
-    background-color: #ecf0f1;
+    background-color: #333;
     margin: 3px 0;
-    transition: all 0.3s ease;
 }
 
+/* Show hamburger menu on smaller screens */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
+    ul {
+        display: none; /* Hide the menu items by default */
         position: absolute;
-        top: 60px;
+        top: 60px; /* Adjust as necessary */
         right: 0;
-        width: 200px;
-        background-color: #34495e;
-        padding: 1rem;
-        border-radius: 5px;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    nav ul li {
+        background-color: #fff;
+        list-style: none;
+        padding: 0;
         margin: 0;
+        border: 1px solid #ddd;
     }
 
-    nav ul li a {
-        padding: 15px 20px;
+    ul.show {
+        display: block; /* Show the menu items when toggled */
+    }
+
+    ul li {
+        padding: 10px;
     }
 }
 
@@ -103,14 +105,13 @@ nav a:hover {
 
 .carousel-inner {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease; /* Smooth transition */
+    overflow: hidden;
+    width: 100%;
 }
 
 .carousel-item {
     min-width: 100%;
-    box-sizing: border-box;
-    padding: 1rem;
-    text-align: center;
 }
 
 .carousel-controls {
