@@ -244,6 +244,26 @@ form {
     border-radius: 5px;
     display: none;
 }
+/* Send Button States */
+#send-button {
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+#send-button.sent {
+    background-color: green;
+    color: white;
+}
+
+#send-button.failed {
+    background-color: red;
+    color: white;
+}
+
+#thank-you-message {
+    text-align: center;
+    display: none;
+}
 
 /* Responsive Media Queries */
 @media (max-width: 600px) {
