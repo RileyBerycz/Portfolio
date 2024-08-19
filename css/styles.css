@@ -95,10 +95,7 @@ nav {
 }
 
 /* Carousel */
-.carousel {
-    width: 100%;
-    max-width: 800px;
-    margin: 2rem auto;
+.carousel-wrapper {
     position: relative;
     overflow: hidden;
 }
@@ -106,12 +103,11 @@ nav {
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease; /* Smooth transition */
-    overflow: hidden;
-    width: 100%;
 }
 
 .carousel-item {
-    min-width: 100%;
+    min-width: 100%; /* Ensure items take full width of the carousel */
+    box-sizing: border-box;
 }
 
 .carousel-controls {
@@ -120,15 +116,18 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    transform: translateY(-50%);
 }
 
-.carousel-control {
-    background-color: rgba(0, 0, 0, 0.5);
+.carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
     color: white;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
+    padding: 10px;
     cursor: pointer;
+    font-size: 18px;
 }
+
 
 /* Content Area */
 .content {

@@ -22,6 +22,8 @@ const items = document.querySelectorAll('.carousel-item');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 let currentIndex = 0;
+const intervalTime = 3000; // Change slide every 3 seconds
+let autoSlideInterval;
 
 function showSlide(index) {
     if (index < 0) {
@@ -34,18 +36,28 @@ function showSlide(index) {
     carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+    }, intervalTime);
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
 prevBtn.addEventListener('click', () => {
+    stopAutoSlide();
     showSlide(currentIndex - 1);
+    startAutoSlide();
 });
 
 nextBtn.addEventListener('click', () => {
+    stopAutoSlide();
     showSlide(currentIndex + 1);
+    startAutoSlide();
 });
 
-// Optional: prevent the page from scrolling back to top
-document.addEventListener('click', (event) => {
-    if (event.target.closest('.carousel-button')) {
-        event.preventDefault();
-    }
-});
+// Start the automatic sliding when the page loads
+startAutoSlide();
 });
