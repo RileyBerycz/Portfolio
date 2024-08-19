@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('show');
         });
-    })
+    });
 
 // Carousel functionality
 document.addEventListener('DOMContentLoaded', () => {
