@@ -20,47 +20,50 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 // Carousel functionality
-const carousel = document.querySelector('.carousel-inner');
-const items = document.querySelectorAll('.carousel-item');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-let currentIndex = 0;
-const intervalTime = 3000; // Change slide every 3 seconds
-let autoSlideInterval;
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+    const intervalTime = 3000; // Auto-slide interval time
+    let autoSlideInterval;
 
-function showSlide(index) {
-    if (index < 0) {
-        currentIndex = items.length - 1;
-    } else if (index >= items.length) {
-        currentIndex = 0;
-    } else {
-        currentIndex = index;
+    function showSlide(index) {
+        if (index < 0) {
+            currentIndex = items.length - 1;
+        } else if (index >= items.length) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
 
-function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            showSlide(currentIndex + 1);
+        }, intervalTime);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        showSlide(currentIndex - 1);
+        startAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        stopAutoSlide();
         showSlide(currentIndex + 1);
-    }, intervalTime);
-}
+        startAutoSlide();
+    });
 
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-}
-
-prevBtn.addEventListener('click', () => {
-    stopAutoSlide();
-    showSlide(currentIndex - 1);
+    // Start the automatic sliding when the page loads
     startAutoSlide();
 });
-
-nextBtn.addEventListener('click', () => {
-    stopAutoSlide();
-    showSlide(currentIndex + 1);
-    startAutoSlide();
 });
 
-// Start the automatic sliding when the page loads
-startAutoSlide();
-});
