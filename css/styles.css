@@ -70,7 +70,6 @@ nav a:hover {
 }
 
 /* Styles for the dropdown menu */
-/* Dropdown menu styling */
 #nav-menu {
     list-style: none;
     padding: 0;
@@ -156,24 +155,30 @@ nav a:hover {
 .carousel-wrapper {
     position: relative;
     width: 80%; /* Adjust width as needed */
-    margin: 0 auto; /* Center the carousel */
+    margin: 0 auto; /* Center the carousel horizontally */
     overflow: hidden; /* Hide overflowing items */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center content horizontally */
 }
 
 /* Inner carousel container */
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease; /* Smooth transition */
+    width: 100%; /* Full width of the carousel container */
+    position: relative;
 }
 
 /* Each carousel item */
 .carousel-item {
     min-width: 100%; /* Full width of the carousel container */
     box-sizing: border-box; /* Include padding and border in width/height */
-    text-align: center; /* Center content */
+    text-align: center; /* Center text */
     padding: 20px; /* Adjust padding as needed */
+    display: flex; /* Flexbox for vertical centering */
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
 }
 
 /* Carousel control buttons */
@@ -184,7 +189,6 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    pointer-events: none; /* Prevent interference with carousel items */
 }
 
 .carousel-controls button {
@@ -194,7 +198,6 @@ nav a:hover {
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
-    pointer-events: all; /* Allow interaction with buttons */
 }
 
 
