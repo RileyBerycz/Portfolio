@@ -9,12 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
      // Hamburger menu functionality
-     const hamburger = document.querySelector('.hamburger');
-     const nav = document.querySelector('nav ul');
-     document.querySelector('.hamburger').addEventListener('click', () => {
-        const menu = document.querySelector('nav ul');
-        menu.classList.toggle('show');
-    });
+     document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+    
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('show');
+        });
+    })
 
 // Carousel functionality
 const carousel = document.querySelector('.carousel-inner');
