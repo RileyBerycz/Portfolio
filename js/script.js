@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = targetId;
         });
     });
-     // Hamburger menu functionality
-     document.addEventListener('DOMContentLoaded', () => {
-        const hamburger = document.getElementById('hamburger-menu');
-        const navMenu = document.getElementById('nav-menu');
+
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger-menu');
+    const navMenu = document.getElementById('nav-menu');
     
+    if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('show');
         });
-    });
+    }
 
-// Carousel functionality
-document.addEventListener('DOMContentLoaded', () => {
+    // Carousel functionality
     const carousel = document.querySelector('.carousel-inner');
     const items = document.querySelectorAll('.carousel-item');
     const prevBtn = document.querySelector('.prev');
@@ -50,20 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(autoSlideInterval);
     }
 
-    prevBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        showSlide(currentIndex - 1);
-        startAutoSlide();
-    });
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            showSlide(currentIndex - 1);
+            startAutoSlide();
+        });
 
-    nextBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        showSlide(currentIndex + 1);
-        startAutoSlide();
-    });
+        nextBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            showSlide(currentIndex + 1);
+            startAutoSlide();
+        });
+    }
 
     // Start the automatic sliding when the page loads
     startAutoSlide();
 });
-});
-

@@ -20,8 +20,9 @@ header {
     color: #ecf0f1;
     text-align: center;
     padding: 10px 20px;
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensure vertical alignment */
 }
 
 /* Navigation */
@@ -35,23 +36,9 @@ nav {
     align-items: center;
 }
 
-nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #2c3e50;
-    border-radius: 3px;
-    color: #fff;
-}
-
 /* Hamburger Menu */
 .hamburger {
-    display: none; /* Hide by default, show on smaller screens */
+    display: flex; /* Always show hamburger */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -61,6 +48,7 @@ nav a:hover {
     position: relative;
 }
 
+/* Hamburger Bars */
 .bar {
     width: 25px;
     height: 3px;
@@ -78,8 +66,14 @@ nav a:hover {
     position: absolute;
     top: 100%; /* Position below header */
     right: 0;
-    background-color: #333;
+    background-color: #34495e; /* Match nav background color */
     width: 200px;
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+/* Show menu when active */
+#nav-menu.show {
+    display: block; /* Show the menu items when toggled */
 }
 
 #nav-menu li {
@@ -97,22 +91,9 @@ nav a:hover {
     background-color: #555;
 }
 
-/* Show hamburger on smaller screens */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-}
-
-/* X transformation */
-#nav-menu.show {
-    display: block;
-}
-
 /* X transformation */
 .hamburger.active .bar:nth-child(1) {
     transform: rotate(45deg);
-    position: absolute;
 }
 
 .hamburger.active .bar:nth-child(2) {
@@ -121,35 +102,26 @@ nav a:hover {
 
 .hamburger.active .bar:nth-child(3) {
     transform: rotate(-45deg);
-    position: absolute;
 }
 
-/* Show hamburger menu on smaller screens */
-@media (max-width: 768px) {
+/* Ensure hamburger menu is always visible */
+@media (min-width: 769px) {
     .hamburger {
         display: flex;
     }
-
-    ul {
-        display: none; /* Hide the menu items by default */
-        position: absolute;
-        top: 60px; /* Adjust as necessary */
-        right: 0;
-        background-color: #fff;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        border: 1px solid #ddd;
+    
+    #nav-menu {
+        display: flex; /* Display menu inline on larger screens */
+        position: static; /* Normal flow */
+        background-color: transparent;
+        width: auto;
     }
 
-    ul.show {
-        display: block; /* Show the menu items when toggled */
-    }
-
-    ul li {
-        padding: 10px;
+    #nav-menu li {
+        border: none; /* No border on larger screens */
     }
 }
+
 
 /* Carousel */
 .carousel-wrapper {
