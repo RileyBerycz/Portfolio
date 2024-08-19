@@ -25,19 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.carousel-item');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+    const totalItems = items.length;
     let currentIndex = 0;
-    const intervalTime = 10000; // Auto-slide interval time
+    const intervalTime = 5000; // Auto-slide interval time in milliseconds
     let autoSlideInterval;
 
     function showSlide(index) {
-        if (index < 0) {
-            currentIndex = items.length - 1;
-        } else if (index >= items.length) {
-            currentIndex = 0;
-        } else {
-            currentIndex = index;
-        }
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        // Calculate the correct index for circular behavior
+        const normalizedIndex = (index + totalItems) % totalItems;
+        carousel.style.transform = `translateX(-${normalizedIndex * 100}%)`;
+        currentIndex = normalizedIndex;
     }
 
     function startAutoSlide() {
@@ -50,19 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(autoSlideInterval);
     }
 
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => {
-            stopAutoSlide();
-            showSlide(currentIndex - 1);
-            startAutoSlide();
-        });
+    prevBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        showSlide(currentIndex - 1);
+        startAutoSlide();
+    });
 
-        nextBtn.addEventListener('click', () => {
-            stopAutoSlide();
-            showSlide(currentIndex + 1);
-            startAutoSlide();
-        });
-    }
+    nextBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        showSlide(currentIndex + 1);
+        startAutoSlide();
+    });
 
     // Start the automatic sliding when the page loads
     startAutoSlide();
