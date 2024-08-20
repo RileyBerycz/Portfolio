@@ -185,6 +185,9 @@ nav {
     font-size: 20px;
 }
 
+.carousel-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
 
 /* Content Area */
 .content {
