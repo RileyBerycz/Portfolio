@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoSlideInterval;
 
     function showSlide(index) {
-        // Calculate the correct index for circular behavior
+        // Calculate normalized index
         const normalizedIndex = (index + totalItems) % totalItems;
         carousel.style.transform = `translateX(-${normalizedIndex * 100}%)`;
         currentIndex = normalizedIndex;
