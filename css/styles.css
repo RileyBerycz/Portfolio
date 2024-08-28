@@ -16,84 +16,46 @@ h1 {
 
 /* Header */
 header {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Ensure vertical alignment */
-}
-
-/* Navigation */
-nav {
-    background-color: #34495e;
-    padding: 0.5rem;
-    border-radius: 5px;
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    z-index: 10; /* Ensure header is above other elements */
 }
 
 /* Hamburger Menu */
 .hamburger {
-    display: flex; /* Always show hamburger */
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.4s;
+    z-index: 10; /* Ensure hamburger is above the nav menu */
 }
 
-/* Hamburger Bars */
+.hamburger:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Add a hover effect */
+}
+
 .bar {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: #ecf0f1;
     margin: 3px 0;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.4s, opacity 0.4s, background-color 0.4s;
 }
 
-/* Styles for the dropdown menu */
-#nav-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: none; /* Hide menu by default */
-    position: absolute;
-    top: 100%; /* Position below header */
-    right: 0;
-    background-color: #34495e; /* Match nav background color */
-    width: 200px;
-    border-radius: 5px; /* Optional: for rounded corners */
+/* Change bar color when active */
+.hamburger.active .bar {
+    background-color: #e74c3c; /* Change to a red color for the X */
 }
 
-/* Show menu when active */
-#nav-menu.show {
-    display: block; /* Show the menu items when toggled */
-}
-
-#nav-menu li {
-    border-bottom: 1px solid #444;
-}
-
-#nav-menu li a {
-    display: block;
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-}
-
-#nav-menu li a:hover {
-    background-color: #555;
-}
-
-/* X transformation */
+/* Hamburger animation */
 .hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg);
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .hamburger.active .bar:nth-child(2) {
@@ -101,27 +63,58 @@ nav {
 }
 
 .hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg);
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Ensure hamburger menu is always visible */
-@media (min-width: 769px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    #nav-menu {
-        display: flex; /* Display menu inline on larger screens */
-        position: static; /* Normal flow */
-        background-color: transparent;
-        width: auto;
-    }
-
-    #nav-menu li {
-        border: none; /* No border on larger screens */
-    }
+/* Nav Menu */
+#nav-menu {
+    display: none;
+    position: absolute;
+    top: 40px; 
+    right: 20px; 
+    width: 100px;
+    background-color: #3a506b;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 9; /* Below the hamburger menu */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+#nav-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#nav-menu li {
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#nav-menu.show li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#nav-menu a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#nav-menu a:hover {
+    color: #2980b9; /* Change color on hover for feedback */
+}
 
 /* Carousel Wrapper */
 .carousel-wrapper {

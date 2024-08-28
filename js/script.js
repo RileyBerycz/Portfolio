@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hamburger menu functionality
+    // Hamburger functionality
     const hamburger = document.getElementById('hamburger-menu');
     const navMenu = document.getElementById('nav-menu');
-    
+
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
@@ -20,12 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!hamburger.contains(event.target) && !navMenu.contains(event.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('show');
+        }
+    });
+
     // Carousel functionality
     const carousel = document.querySelector('.carousel-inner');
     const items = document.querySelectorAll('.carousel-item');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-    const progressBar = document.querySelector('.progress-bar');
     let currentIndex = 0;
     const intervalTime = 10000; // Auto-slide interval time in milliseconds
     let autoSlideInterval;
@@ -35,28 +42,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const clone = item.cloneNode(true);
             carousel.appendChild(clone);
         });
+        const firstClone = items[0].cloneNode(true);
+        carousel.appendChild(firstClone);
+        const lastClone = items[items.length - 1].cloneNode(true);
+        carousel.insertBefore(lastClone, carousel.firstChild);
     }
 
     function setInitialPosition() {
-        carousel.style.transform = `translateX(-${100 * items.length}%)`;
+        carousel.style.transform = `translateX(-${100 * (items.length + 1)}%)`;
     }
 
     function showSlide(direction) {
         currentIndex += direction;
         carousel.style.transition = 'transform 0.5s ease';
-        carousel.style.transform = `translateX(-${(currentIndex + items.length) * 100}%)`;
+        carousel.style.transform = `translateX(-${(currentIndex + items.length + 1) * 100}%)`;
 
         if (direction === 1 && currentIndex === items.length) {
             setTimeout(() => {
                 carousel.style.transition = 'none';
                 currentIndex = 0;
-                carousel.style.transform = `translateX(-${items.length * 100}%)`;
+                carousel.style.transform = `translateX(-${(items.length + 1) * 100}%)`;
             }, 500);
-        } else if (direction === -1 && currentIndex === -items.length) {
+        } else if (direction === -1 && currentIndex === -1) {
             setTimeout(() => {
                 carousel.style.transition = 'none';
-                currentIndex = 0;
-                carousel.style.transform = `translateX(-${items.length * 100}%)`;
+                currentIndex = items.length - 1;
+                carousel.style.transform = `translateX(-${(items.length * 2) * 100}%)`;
             }, 500);
         }
     }
