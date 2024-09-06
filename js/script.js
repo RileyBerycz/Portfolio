@@ -29,10 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carousel functionality
-    const carousel = document.querySelector('.carousel-inner');
-    const items = document.querySelectorAll('.carousel-item');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    const carousel = carouselWrapper.querySelector('.carousel-inner');
+    const items = carousel.querySelectorAll('.carousel-item');
+    const prevBtn = carouselWrapper.querySelector('.prev');
+    const nextBtn = carouselWrapper.querySelector('.next');
     let currentIndex = 0;
     const intervalTime = 10000; // Auto-slide interval time in milliseconds
     let autoSlideInterval;
